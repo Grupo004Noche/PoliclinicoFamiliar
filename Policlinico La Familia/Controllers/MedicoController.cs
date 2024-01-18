@@ -25,6 +25,18 @@ namespace Policlinico_La_Familia.Controllers
             return await _context.Medicos.ToListAsync();
         }
 
+        [HttpGet("Reporte1")]
+        public async Task<ActionResult<List<reporte1>>> ListaMedico()
+        {
+            return await _context.Medicos.Select(x => new reporte1
+            {
+                IDMedico = x.Idmédico,
+                Nombre = x.Nombre,
+                Especialidad= x.Especialidad,
+                Telefono=x.Telefono,
+            }).ToListAsync();
+        }
+
         // GET api/<MedicoController>/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -49,5 +61,13 @@ namespace Policlinico_La_Familia.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class reporte1
+    {
+        public int IDMedico { get; set; }
+        public string? Nombre { get; set; }
+        public string? Especialidad { get; set; }
+        public string? Telefono {  get; set; }
     }
 }

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ClientPoliclinicoLaFamilia.Models.Medico>
+
+@{
+    ViewData["Title"] = "Medico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Medico</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoElectronico)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoElectronico)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idmédico">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idmédico">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idmédico">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

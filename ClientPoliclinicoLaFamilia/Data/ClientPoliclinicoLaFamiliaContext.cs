@@ -15,5 +15,6 @@ namespace ClientPoliclinicoLaFamilia.Data
         }
 
         public DbSet<ClientPoliclinicoLaFamilia.Models.Paciente> Paciente { get; set; } = default!;
+        public DbSet<ClientPoliclinicoLaFamilia.Models.Medico> Medico { get; set; } = default!;
     }
 }
